@@ -1,17 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <Form  v-on:event="EditTweet"/>
+    <hr />
+    <Tweet v-bind:message="tweet"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from "./components/Form.vue";
+import Tweet from "./components/Tweet.vue";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
+    Form,
+    Tweet,
+  },
+  data() {
+   return {
+     tweet: 'ツイート内容',
+     count: 0
+   } 
+  },
+  methods: {
+    EditTweet(text) {
+      this.count++
+      this.tweet = text
+    }
   }
-}
+};
 </script>
 
 <style>
