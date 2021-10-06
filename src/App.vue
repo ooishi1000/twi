@@ -2,7 +2,11 @@
   <div id="app">
     <Form  v-on:event="EditTweet"/>
     <hr />
-    <Tweet v-bind:message="tweet"/>
+    <Tweet v-bind="tips">
+      <div v-for="(rog, index) in rogs" :key="index">
+          <h5 class="card" style="text-align:left">{{rog.name}} :<p style="color:black">{{rog.talk}}</p> </h5>
+      </div>
+    </Tweet>
   </div>
 </template>
 
@@ -18,14 +22,24 @@ export default {
   },
   data() {
    return {
-     tweet: 'ツイート内容',
-     count: 0
+     tips: {
+       message: 'ツイート内容',
+      //  moment: ,
+     },
+     rogs: [
+        {name:'NAME', talk:'データ'},
+        {name:'NAME', talk:'データ'},
+        ],
+     count: 0,
    } 
   },
   methods: {
     EditTweet(text) {
       this.count++
-      this.tweet = text
+      console.log(this.count)
+      console.log(text)
+      // this.tweet = text
+      this.rogs.unshift({name:'NAME', talk:text})
     }
   }
 };
