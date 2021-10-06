@@ -6,11 +6,8 @@
 
             <p><slot /></p>
 
-            <!-- <p>{{ moment }}</p> -->
-            
-            <!-- <div v-for="(rog, index) in rogs" :key="index">
-                <h5 class="card" style="text-align:left">{{rog.name}} :<p style="color:black">{{rog.talk}}</p> </h5>
-            </div> -->
+            <!-- カウントできるfavボタンをつける -->
+
         </div>
     </div>
   </div>
@@ -19,22 +16,17 @@
 <script>
 export default {
     name: 'Tweet',
-    props: ['message','moment'],
+    props: ['message',],
     
 
     data() {
        return {
-        // rogs: [
-        // {name:'NAME', talk:'データ'},
-        // {name:'NAME', talk:'データ'},
-        // ],
+
        }
     },
 
     methods: {
-        // plusTweet(text) {
-        //    this.$set(this.rogs,'NAME',text)
-        // }
+        
     }
 }
 </script>
