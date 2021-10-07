@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <div class="alert alert-info">
-        <div class="alert alert-light mx-4" style="width:25rem">
+    <div class="alert alert-info" style="padding-left:16%;">
+        <div class="alert alert-light" style="width:85%;">
             <p>{{ message }}</p>
 
             <p><slot /></p>
+            <p>{{favicon}}</p>
 
             <!-- カウントできるfavボタンをつける -->
 
@@ -12,6 +13,12 @@
     </div>
   </div>
 </template>
+
+<style>
+  .alert {
+    
+  }
+</style>
 
 <script>
 export default {
@@ -21,7 +28,7 @@ export default {
 
     data() {
        return {
-
+         favicon: '★'
        }
     },
 
