@@ -1,16 +1,16 @@
 <template>
   <div class="container">
-    <div class="alert alert-info" style="padding-left:16%;">
-        <div class="alert alert-light" style="width:85%;">
+        <div class="alert alert-light" style="width:75%;">
             <p>{{ message }}</p>
 
             <p><slot /></p>
-            <p>{{favicon}}</p>
-
-            <!-- カウントできるfavボタンをつける -->
-
+            <div class="itembox">
+            <p>{{favicon}}
+              <button class="favbutton" v-on:click="FavCount">イイネ！</button>
+              {{favcount}}
+            </p> 
+            </div>
         </div>
-    </div>
   </div>
 </template>
 
@@ -28,12 +28,17 @@ export default {
 
     data() {
        return {
-         favicon: '★'
+         favicon: '★',
+         favcount: 0,
        }
     },
 
     methods: {
-        
+        FavCount() {
+      //イイネのクリック数をカウントして表示させるメソッド。
+      this.favcount++
+      console.log(this.favcount)
+    }
     }
 }
 </script>
